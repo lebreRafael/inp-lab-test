@@ -1,0 +1,26 @@
+{
+  "name": "inp-lab-test",
+  "version": "1.0.0",
+  "description": "Automation to run interactions on your pages multiple times therefore getting more reliable INP and TBT numbers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lebreRafael/inp-lab-test.git"
+  },
+  "keywords": [
+    "inp",
+    "tbt",
+    "cwv",
+    "core-web-vitals",
+    "performance"
+  ],
+  "author": "Rafael Lebre",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lebreRafael/inp-lab-test/issues"
+  },
+  "homepage": "https://github.com/lebreRafael/inp-lab-test#readme"
+}
