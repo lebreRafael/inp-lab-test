@@ -2,7 +2,7 @@
 
 Automation to run interactions on your pages multiple times therefore getting a more reliable INP and TBT numbers
 
-### Getting started
+## Getting started
 
 `npm i --save-dev inp-lab-test`
 
@@ -36,3 +36,26 @@ Then:
 - Copy the first 2 `runner.runStep` (the ones for setting viewport and navigating) and paste them inside `navigationCallback`
 - Copy the rest of the `runner.runStep` and paste them inside `interactionsCallback`
 - Run node yourFileName.js
+
+## API
+
+### Functions
+
+#### `startAutomation()`
+`type startAutomation = (options: StartAutomationOptions) => void;`
+
+### Types
+
+#### `PuppeteerReplayRunner`
+Check docs for this on [puppeteer/replay repo](https://github.com/puppeteer/replay/blob/adffbeb683f51296063ad8e7c9e81a9648f72592/src/Runner.ts#L31)
+
+#### `StartAutomationOptions`
+```
+interface StartAutomationOptions {
+  navigationCallback: (runner: PuppeteerReplayRunner) => {};
+  interactionsCallback: (runner: PuppeteerReplayRunner) => {};
+  samplesAmount?: number; // defaults to 10
+  CPUThrottling?: number; // defaults to 12
+  debug?: boolean; // defaults to false
+}
+```
