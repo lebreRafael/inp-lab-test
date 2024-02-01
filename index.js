@@ -85,8 +85,12 @@ module.exports = {
           console.error(e);
           break;
         }
-        if (!failedLastTry) i--;
-        browser.close();
+        if (!failedLastTry) {
+          i--;
+          browser.close();
+        } else {
+          throw e;
+        }
         failedLastTry = true;
       }
     }
