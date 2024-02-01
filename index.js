@@ -34,10 +34,14 @@ const trackCWV = async (page) => {
 };
 
 async function run(browser, options) {
-  const { navigationCallback, interactionsCallback, url } = options;
+  const {
+    navigationCallback,
+    interactionsCallback,
+    CPUThrottling = 12,
+  } = options;
 
   const page = await browser.newPage();
-  await page.emulateCPUThrottling(12);
+  await page.emulateCPUThrottling(CPUThrottling);
 
   const runner = await createRunner(
     undefined,
@@ -57,19 +61,19 @@ async function run(browser, options) {
   console.log(11111111111, "result", data);
 
   await runner.runAfterAllSteps();
-  browser.close();
 }
 
 module.exports = {
   startAutomation: async (options) => {
-    const numberOfSamples = 10;
-    for (i = 0; i < numberOfSamples; i++) {
+    const { samplesAmount = 10 } = options;
+    for (i = 0; i < samplesAmount; i++) {
       const browser = await puppeteer.launch({
         headless: false,
         timeout: 10000, // for some reason any value that I pass to timeout fixes the timeout issue
       });
       // try {
       await run(browser, options);
+      browser.close();
       // } catch (e) {
       //   i--;
       //   browser.close();
