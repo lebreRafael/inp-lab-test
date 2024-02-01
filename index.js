@@ -66,6 +66,10 @@ async function run(browser, options) {
 module.exports = {
   startAutomation: async (options) => {
     const { samplesAmount = 10 } = options;
+    if (samplesAmount < 5)
+      throw new Error(
+        "You should use at least 5 samples to get reliable number (altough I would recommend 10 or more)"
+      );
     let failedLastTry = false;
     for (i = 0; i < samplesAmount; i++) {
       const browser = await puppeteer.launch({
