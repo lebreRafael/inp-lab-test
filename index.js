@@ -66,18 +66,21 @@ async function run(browser, options) {
 module.exports = {
   startAutomation: async (options) => {
     const { samplesAmount = 10 } = options;
+    let failedLastTry = false;
     for (i = 0; i < samplesAmount; i++) {
       const browser = await puppeteer.launch({
         headless: false,
         timeout: 10000, // for some reason any value that I pass to timeout fixes the timeout issue
       });
-      // try {
-      await run(browser, options);
-      browser.close();
-      // } catch (e) {
-      //   i--;
-      //   browser.close();
-      // }
+      try {
+        await run(browser, options);
+        browser.close();
+        failedLastTry = false;
+      } catch (e) {
+        if (!failedLastTry) i--;
+        browser.close();
+        failedLastTry = true;
+      }
     }
     console.log("Results:", results);
     const entriesCount = results.length;
