@@ -65,7 +65,7 @@ async function run(browser, options) {
 
 module.exports = {
   startAutomation: async (options) => {
-    const { samplesAmount = 10 } = options;
+    const { samplesAmount = 10, debug } = options;
     if (samplesAmount < 5)
       throw new Error(
         "You should use at least 5 samples to get reliable number (altough I would recommend 10 or more)"
@@ -81,6 +81,10 @@ module.exports = {
         browser.close();
         failedLastTry = false;
       } catch (e) {
+        if (debug) {
+          console.error(e);
+          break;
+        }
         if (!failedLastTry) i--;
         browser.close();
         failedLastTry = true;
