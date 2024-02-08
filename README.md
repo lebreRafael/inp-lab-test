@@ -1,6 +1,8 @@
 # inp-lab-test
 
-Automation to run interactions on your pages multiple times therefore getting a more reliable INP and TBT numbers
+Automation to run interactions on your pages multiple times therefore getting a more reliable INP and TBT numbers.
+
+It is not 100% reliable like RUM because we still can't simulate all the different user behaviors but it does help on some cases.
 
 ## Getting started
 
@@ -59,3 +61,11 @@ interface StartAutomationOptions {
   debug?: boolean; // defaults to false
 }
 ```
+
+## Coming soon
+* Expose `page` object to `navigationCallback` and `interactionsCallback` to allow request blocking and other things
+* Create an examples folder with a basic example an one example of how to block requests like third party scripts
+* Better documentation of `debug` prop
+
+## Contributing
+Feel free to open issues, PRs and reach me on twitter [@lebreRafael](https://twitter.com/lebreRafael)
