@@ -2,6 +2,8 @@
 
 Automation to run interactions on your pages multiple times therefore getting a more reliable INP and TBT numbers.
 
+The goal is to run  the automation and see the numbers, then make a change you think could help and run it again to compare the numbers.
+
 It is not 100% reliable like RUM because we still can't simulate all the different user behaviors but it does help on some cases.
 
 ## Getting started
